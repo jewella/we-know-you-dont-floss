@@ -15,7 +15,7 @@ const setStateAndInvokeEntryIntent = function() {
     this.handler.state = SKILL_STATES.SKILL_START;
 
     // response
-    this.emitWithState('SkillIntro');
+    this.emitWithState((this.event.request.intent && this.event.request.intent.name) || 'SkillIntro');
   }
 };
 
@@ -29,4 +29,5 @@ module.exports = {
   Unhandled() {
     console.log('unhandled');
   },
+
 };

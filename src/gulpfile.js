@@ -38,6 +38,7 @@ gulp.task('js', function() {
     'index.js',
     'enums.js',
     'responses.js',
+    'uris.js',
     'handlers/**/*',
     'modules/**/*',
   ], { base: './' })

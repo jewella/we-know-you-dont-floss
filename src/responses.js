@@ -14,8 +14,9 @@ module.exports.goodbye = () =>
 module.exports.yesOrNo = () =>
   'I\'m sorry is that a yes or no...?';
 
-module.exports.appointment = (date) =>
-  `Your next appointment is on ${date}. Please avoid drinking coffee beforehand... Would you like to hear the date again?`;
+module.exports.appointment = (date, promotion = '') => date 
+  ? `Your next appointment is on ${date}. By the way, ${promotion}... Would you like to hear the date again?`
+  : `I'm sorry, I wasn't able to find an appointment date... Would you like me to check again?`;
 
 module.exports.linkAccount = () =>
   'to start using this skill, please use the companian app to authenticate on Amazon'

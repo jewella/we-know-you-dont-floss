@@ -7,19 +7,23 @@ const SKILL_STATES = require('../enums').SKILL_STATES;
 const res = require('../responses');
 const getAppointment = require('../modules/get-appointment');
 const getUserProfile = require('../modules/get-user-profile');
+const getPromotion = require('../modules/get-promotion');
 
-module.exports = Alexa.CreateStateHandler(SKILL_STATES.APPOINTMENT, mixinHandlers(coreHandlers, {
-  'AMAZON.YesIntent': function() {
+const appointmentTimeHandler = function() {
     // updates
     this.handler.state = SKILL_STATES.APPOINTMENT;
 
     // response
-    getUserProfile(this.event.session.user.accessToken, (err) => { console.error(err); }, (profile) => {
-      getAppointment(profile.email, () => {}, (appointment) => {
-        res.ask.call(this, res.appointment());
-      });
-    });
-  },
+    getUserProfile({ token: this.event.session.user.accessToken })
+      .then((options) => getAppointment(options))
+      .then((options) => getPromotion(options))
+      .then((options) => res.tell.call(this, res.appointment(options.time, options.promotion)))
+      .catch((err) => console.log(err));
+}
+
+module.exports = Alexa.CreateStateHandler(SKILL_STATES.APPOINTMENT, mixinHandlers(coreHandlers, {
+  AppointmentTime: appointmentTimeHandler,
+  'AMAZON.YesIntent': appointmentTimeHandler,
   'AMAZON.NoIntent': function() {
     res.tell.call(this, res.goodbye());
   },

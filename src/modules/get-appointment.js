@@ -12,12 +12,13 @@ const params = {
   TableName: 'we-know-you-dont-floss-appointments'
 };
 
-module.exports = (email) => {
+module.exports = (options) => {
   return new Promise((resolve, reject) => {
-    params.Key.email.S = email;
+    console.log('email key', options.profile.email);
+    params.Key.email.S = options.profile.email;
     db.getItem(params, function(err, data) {
       if (err) reject(err);
-      if (data) resolve(data.Item.time.S);
+      if (data) resolve(Object.assign({}, { time: data.Item.time.N }, options));
     });
   });
 }

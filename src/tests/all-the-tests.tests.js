@@ -47,18 +47,22 @@ const runIntent = intent => new Promise(res => {
       throw new Error(err);
     });
 });
-const amazonProfileService = nock(uris.AMAZON_PROFILE_SERVICE.origin)
-                              .get(uris.AMAZON_PROFILE_SERVICE.pathname)
-                              .query(true)
-                              .reply(200, {
-                                name: 'Bob Smith',
-                                email: 'bsmith@example.com'
-                              });
-                            
+
 const time = Date.now();
-const dynamodb = nock(uris.DYNAMODB_SERVICE.origin)
-                  .post(uris.DYNAMODB_SERVICE.pathname)
-                  .reply(200, { Item: { time: { S: time }}});
+const promotion = 'you can earn 100 dollars off your next cleaning with any referral';
+
+beforeEach(function() {
+  const amazonProfileService = nock(uris.AMAZON_PROFILE_SERVICE.origin)
+                                .get(uris.AMAZON_PROFILE_SERVICE.pathname)
+                                .query(true)
+                                .reply(200, {
+                                  name: 'Bob Smith',
+                                  email: 'bsmith@example.com'
+                                });
+  // const dynamodb = nock(uris.DYNAMODB_SERVICE.origin)
+  //                   .post(uris.DYNAMODB_SERVICE.pathname)
+  //                   .reply(200, { Item: { time: { S: time }}});
+})
 
 describe('Alexa, skill start', () => {
   it('should respond with with account link message and set the state to AUTHENTICATED if no token present', () =>
@@ -97,18 +101,18 @@ describe('Alexa, skill start', () => {
     it('should respond with the appointment date and set the state to APPOINTMENT_REQUEST', () =>
       runIntent(skillStartYesIntent)
         .then(({ outputSpeech, skillState }) => {
-          assert.deepEqual(outputSpeech, sanitise(appointment(time)));
+          assert.deepEqual(outputSpeech, sanitise(appointment(time, promotion)));
           assert.deepEqual(skillState, SKILL_STATES.APPOINTMENT);
         }).catch((err) => console.log(err)));
 
-    // describe('positive response to appointment message', () => {
-    //   it('should respond with the appointment message again', () => 
-    //     runIntent(appointmentYesIntent)
-    //       .then(({ outputSpeech, skillState }) => {
-    //         assert.deepEqual(outputSpeech, sanitise(appointment()));
-    //         assert.deepEqual(skillState, SKILL_STATES.APPOINTMENT);
-    //       }));
-    // });
+    describe('positive response to appointment message', () => {
+      it('should respond with the appointment message again', () => 
+        runIntent(appointmentYesIntent)
+          .then(({ outputSpeech, skillState }) => {
+            assert.deepEqual(outputSpeech, sanitise(appointment(time, promotion)));
+            assert.deepEqual(skillState, SKILL_STATES.APPOINTMENT);
+          }));
+    });
 
     describe('negative response to appointment message', () => {
       it('should respond with goodbye and end the session', () =>

@@ -34,6 +34,8 @@
   "homepage": "https://github.com/craigbilner/alexa-starter-kit#readme",
   "dependencies": {
     "alexa-sdk": "^1.0.3",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4",
     "seedrandom": "^2.4.2"
   },
   "devDependencies": {

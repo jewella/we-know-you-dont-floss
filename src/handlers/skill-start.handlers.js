@@ -6,10 +6,14 @@ const mixinHandlers = require('../modules/utils').mixinHandlers;
 const SKILL_STATES = require('../enums').SKILL_STATES;
 const getUserProfile = require('../modules/get-user-profile');
 const getAppointment = require('../modules/get-appointment');
+const getPromotion = require('../modules/get-promotion');
 const res = require('../responses');
 
 
 module.exports = Alexa.CreateStateHandler(SKILL_STATES.SKILL_START, mixinHandlers(coreHandlers, {
+  LaunchRequest() {
+    res.ask.call(this, res.skillPrelude());
+  },
   SkillIntro() {
     res.ask.call(this, res.skillPrelude());
   },
@@ -21,15 +25,23 @@ module.exports = Alexa.CreateStateHandler(SKILL_STATES.SKILL_START, mixinHandler
     this.handler.state = SKILL_STATES.APPOINTMENT;
 
     // response
-    getUserProfile(this.event.session.user.accessToken)
-      .then((profile) => getAppointment(profile.email))
-      .then((time) => {
-        res.tell.call(this, res.appointment(time))
+    getUserProfile({ token: this.event.session.user.accessToken })
+      .then((options) => getAppointment(options))
+      .then((options) => getPromotion(options))
+      .then((options) => {
+        console.log(options);
+        res.tell.call(this, res.appointment(options.time, options.promotion))
       })
       .catch((err) => console.log(err));
   },
   'AMAZON.CancelIntent': function() {
     res.tell.call(this, res.goodbye());
+  },
+  AppointmentTime() {
+    // updates
+    this.handler.state = SKILL_STATES.APPOINTMENT;
+
+    this.emitWithState('AppointmentTime');
   },
   Unhandled() {
     console.log('unhandled');
