@@ -14,7 +14,6 @@ const params = {
 
 module.exports = (options) => {
   return new Promise((resolve, reject) => {
-    console.log('email key', options.profile.email);
     params.Key.email.S = options.profile.email;
     db.getItem(params, function(err, data) {
       if (err) reject(err);
