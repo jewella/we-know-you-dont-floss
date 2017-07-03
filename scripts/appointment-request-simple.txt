@@ -1,0 +1,11 @@
+User: Alexa, open We Know You Don't Floss.
+
+Alexa: Welcome, would you like to know when your next appointment is? Not that it matters...
+
+User: Yes
+
+Alexa: Your next appointment is on January 1st. Please avoid drinking coffee beforehand... Would you like to hear the date again?
+
+User: No, thank you.
+
+Alexa: Please try harder to remember to floss... and have a nice day.'

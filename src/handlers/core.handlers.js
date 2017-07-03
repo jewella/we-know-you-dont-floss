@@ -1,12 +1,12 @@
 'use strict';
 
-const GAME_STATES = require('../enums').GAME_STATES;
+const SKILL_STATES = require('../enums').SKILL_STATES;
 const res = require('../responses');
 
 module.exports = {
   'AMAZON.StopIntent': function() {
     // updates
-    this.handler.state = GAME_STATES.STOPPED;
+    this.handler.state = SKILL_STATES.STOPPED;
 
     // response
     this.emit(':ask', res.keepGoing());

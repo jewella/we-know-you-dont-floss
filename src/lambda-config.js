@@ -2,12 +2,14 @@ module.exports = {
   region: 'us-east-1',
   handler: 'index.handler',
   role: '@@ROLE',
-  functionName: 'SomeFunctionName',
+  functionName: 'WeKnowYouDontFlossSkill',
   timeout: 10,
   memorySize: 128,
   publish: true,
   accessKeyId: '@@ACCESS_KEY_ID',
   secretAccessKey: '@@SECRET_ACCESS_KEY',
+  runtime: 'nodejs6.10',
+  
 };
 
 // accessKeyId: <access key id>,  // optional

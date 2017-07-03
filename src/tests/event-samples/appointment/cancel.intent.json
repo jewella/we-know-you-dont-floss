@@ -1,0 +1,28 @@
+{
+  "session": {
+    "sessionId": "sessionId",
+    "application": {
+      "applicationId": "appId"
+    },
+    "attributes": {
+      "STATE": "APPOINTMENT",
+      "previousResponse": "Your next appointment is on January 1st. Please avoid drinking coffee beforehand... Would you like to hear the date again?",
+      "previousState": "APPOINTMENT"
+    },
+    "user": {
+      "userId": "userId"
+    },
+    "new": false
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "reqId",
+    "locale": "en-US",
+    "timestamp": "2016-08-13T21:58:51Z",
+    "intent": {
+      "name": "AMAZON.CancelIntent",
+      "slots": {}
+    }
+  },
+  "version": "1.0"
+}

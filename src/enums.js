@@ -1,3 +1,5 @@
-module.exports.GAME_STATES = {
+module.exports.SKILL_STATES = {
   STOPPED: 'STOPPED',
+  SKILL_START: 'SKILL_START',
+  APPOINTMENT: 'APPOINTMENT',
 };

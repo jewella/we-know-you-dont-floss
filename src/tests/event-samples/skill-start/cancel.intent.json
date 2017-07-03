@@ -1,0 +1,28 @@
+{
+  "session": {
+    "sessionId": "sessionId",
+    "application": {
+      "applicationId": "appId"
+    },
+    "attributes": {
+      "STATE": "SKILL_START",
+      "previousResponse": "Welcome, would you like to know when your next appointment is? Not that it matters...",
+      "previousState": "SKILL_START"
+    },
+    "user": {
+      "userId": "userId"
+    },
+    "new": false
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "reqId",
+    "locale": "en-US",
+    "timestamp": "2016-08-13T21:58:51Z",
+    "intent": {
+      "name": "AMAZON.CancelIntent",
+      "slots": {}
+    }
+  },
+  "version": "1.0"
+}

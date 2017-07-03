@@ -1,0 +1,18 @@
+{
+  "session": {
+    "new": true,
+    "sessionId": "session1234",
+    "attributes": {},
+    "user": {
+      "userId": "amzn1.ask.account.AFP3ZWPOS2BGJR7OWJZ3DHPKMOMNWY4AY66FUR7ILBWANIHQN73QHMAHCTVTAHFPUV3WAFNGKBYW5LFUE2WV4CCGEISSPHBHCW5SCYJDL3DLWRRRBB4CQIP3X3PV65V2AYMMXSNFPKHPZJFVAH5AHKHDLAER67H3AHL4XBUU76XEH5BGDZZNGV5T6HHAGN6KGZI777J3VA7WGPA"
+    },
+    "application": {
+      "applicationId": "amzn1.echo-sdk-ams.app.[unique-value-here]"
+    }
+  },
+  "version": "1.0",
+  "request": {
+    "type": "LaunchRequest",
+    "requestId": "request5678"
+  }
+}

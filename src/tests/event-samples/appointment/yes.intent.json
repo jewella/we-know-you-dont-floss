@@ -1,19 +1,29 @@
 {
   "session": {
-    "new": true,
-    "sessionId": "session1234",
-    "attributes": {},
+    "sessionId": "sessionId",
+    "application": {
+      "applicationId": "appId"
+    },
+    "attributes": {
+      "STATE": "APPOINTMENT",
+      "previousResponse": "Your next appointment is on January 1st. Please avoid drinking coffee beforehand... Would you like to hear the date again?",
+      "previousState": "APPOINTMENT"
+    },
     "user": {
       "userId": "amzn1.ask.account.AFP3ZWPOS2BGJR7OWJZ3DHPKMOMNWY4AY66FUR7ILBWANIHQN73QHMAHCTVTAHFPUV3WAFNGKBYW5LFUE2WV4CCGEISSPHBHCW5SCYJDL3DLWRRRBB4CQIP3X3PV65V2AYMMXSNFPKHPZJFVAH5AHKHDLAER67H3AHL4XBUU76XEH5BGDZZNGV5T6HHAGN6KGZI777J3VA7WGPA",
       "accessToken": "Atza|IQEBLjAsAhRBk1-yYVTk9HhZEQnTGL9F3RHS5gIUG0rrerkVvpVTF5kIFWBvZIx7QtJCkzsRFRf1ZAIZeRz6FJwdeyQCLPEbqLnEKU-zQF4n9x76Dl24Rt7HiltefBilnDm0c2PZQP_IUBAzcm93CIDxsMYhEmW_Pr0Tm9tIrGzNzVntLgyiUeXmasL1bUOIv_om66ZVwd7urpyiJSoSbA-1NQ7O9AKC2qXMqvFpvFUBSvgCYoTyyAkOePN63FCaq9NJPYbJLuocqcuyGz9mygNqp9_mNRWRRzcoeSTxpUoa8LxW-IvVVFEA1omCfXmcVijEZA6nbi-EzheMG7fu1y0XNGPEy40Csq7H07wrSqksz9IDIUd4tmqiYsJpN4dxfoGddEauC3i4eLCvsg8gbu963CqqUQ3COxgrWKTsqX8AsT8FCFvmfW3IYfhCG6KuPw8qntBgAU-W9pW523lERQKLxzI07UHyMd2R-Fnaw8IWbBYFCbblwIJhf6twjz9z_4h320f4ywczBa3k_LCoE0VpidER7rVgBtfreox-XYqV5jw"
     },
-    "application": {
-      "applicationId": "amzn1.echo-sdk-ams.app.[unique-value-here]"
+    "new": false
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "reqId",
+    "locale": "en-US",
+    "timestamp": "2016-08-13T21:58:51Z",
+    "intent": {
+      "name": "AMAZON.YesIntent",
+      "slots": {}
     }
   },
-  "version": "1.0",
-  "request": {
-    "type": "LaunchRequest",
-    "requestId": "request5678"
-  }
+  "version": "1.0"
 }

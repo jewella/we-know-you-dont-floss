@@ -1,10 +1,10 @@
 'use strict';
 
 const Alexa = require('alexa-sdk');
-const GAME_STATES = require('../enums').GAME_STATES;
+const SKILL_STATES = require('../enums').SKILL_STATES;
 const res = require('../responses');
 
-module.exports = Alexa.CreateStateHandler(GAME_STATES.STOPPED, {
+module.exports = Alexa.CreateStateHandler(SKILL_STATES.STOPPED, {
   'AMAZON.YesIntent': function() {
     // updates
     this.handler.state = this.attributes.previousState;
