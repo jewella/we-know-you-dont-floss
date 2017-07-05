@@ -28,14 +28,8 @@ module.exports = Alexa.CreateStateHandler(SKILL_STATES.SKILL_START, mixinHandler
     getUserProfile({ token: this.event.session.user.accessToken })
       .then((options) => getAppointment(options))
       .then((options) => getPromotion(options))
-      .then((options) => {
-        console.log(options);
-        res.tell.call(this, res.appointment(options.time, options.promotion))
-      })
+      .then((options) => res.ask.call(this, res.appointment(options.time, options.promotion)))
       .catch((err) => console.log(err));
-  },
-  'AMAZON.CancelIntent': function() {
-    res.tell.call(this, res.goodbye());
   },
   AppointmentTime() {
     // updates

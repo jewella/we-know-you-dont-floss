@@ -1,6 +1,7 @@
 'use strict';
 
 const AWS = require('aws-sdk');
+const moment = require('moment');
 
 const db = new AWS.DynamoDB({ apiVersion: '2012-08-10', region: 'us-east-1' });
 const params = {
@@ -17,7 +18,7 @@ module.exports = (options) => {
     params.Key.email.S = options.profile.email;
     db.getItem(params, function(err, data) {
       if (err) reject(err);
-      if (data) resolve(Object.assign({}, { time: data.Item.time.N }, options));
+      if (data) resolve(Object.assign({}, { time: moment(parseInt(data.Item.time.N, 10)).calendar() }, options));
     });
   });
 }

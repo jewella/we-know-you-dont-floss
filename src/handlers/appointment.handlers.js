@@ -17,7 +17,7 @@ const appointmentTimeHandler = function() {
     getUserProfile({ token: this.event.session.user.accessToken })
       .then((options) => getAppointment(options))
       .then((options) => getPromotion(options))
-      .then((options) => res.tell.call(this, res.appointment(options.time, options.promotion)))
+      .then((options) => res.ask.call(this, res.appointment(options.time, options.promotion)))
       .catch((err) => console.log(err));
 }
 

@@ -4,6 +4,7 @@ const assert = require('assert');
 const skill = require('../index');
 const context = require('aws-lambda-mock-context');
 const nock = require('nock');
+const moment = require('moment');
 const uris = require('../uris');
 const unauthenticatedSessionStartIntent = require('./event-samples/new-session/unauthenticated-session-start.intent');
 const sessionStartIntent = require('./event-samples/new-session/session-start.intent');
@@ -48,7 +49,8 @@ const runIntent = intent => new Promise(res => {
     });
 });
 
-const time = Date.now();
+const now = Date.now();
+const time = moment(now).calendar();
 const promotion = 'you can earn 100 dollars off your next cleaning with any referral';
 
 beforeEach(function() {
@@ -59,9 +61,12 @@ beforeEach(function() {
                                   name: 'Bob Smith',
                                   email: 'bsmith@example.com'
                                 });
-  // const dynamodb = nock(uris.DYNAMODB_SERVICE.origin)
-  //                   .post(uris.DYNAMODB_SERVICE.pathname)
-  //                   .reply(200, { Item: { time: { S: time }}});
+  const dbAppointment = nock(uris.DYNAMODB_SERVICE.origin)
+                    .post(uris.DYNAMODB_SERVICE.pathname)
+                    .reply(200, { Item: { time: { N: now }}});                                
+  const dbPromotion = nock(uris.DYNAMODB_SERVICE.origin)
+                    .post(uris.DYNAMODB_SERVICE.pathname)
+                    .reply(200, { Item: { text: { S: promotion }}});
 })
 
 describe('Alexa, skill start', () => {
