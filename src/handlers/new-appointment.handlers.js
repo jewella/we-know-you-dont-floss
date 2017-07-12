@@ -5,6 +5,8 @@ const coreHandlers = require('./core.handlers');
 const { mixinHandlers, delegateSlotCollection, isSlotValid } = require('../modules/utils');
 const SKILL_STATES = require('../enums').SKILL_STATES;
 const res = require('../responses');
+const getUserProfile = require('../modules/get-user-profile');
+const requestAppointment = require('../modules/request-appointment');
 
 module.exports = Alexa.CreateStateHandler(SKILL_STATES.NEW_APPOINTMENT, mixinHandlers(coreHandlers, {
   NewAppointment() {
@@ -50,8 +52,10 @@ module.exports = Alexa.CreateStateHandler(SKILL_STATES.NEW_APPOINTMENT, mixinHan
     this.attributes.date = undefined;
     this.attributes.time = undefined;
 
-    // compose speechOutput that simply reads all the collected slot values.
-    res.ask.call(this, res.recapAppointment(date, timeOutput));
+    getUserProfile({ token: this.event.session.user.accessToken, date, time })
+      .then((options) => requestAppointment(options))
+      .then((options) => res.ask.call(this, res.ask.call(this, res.recapAppointment(date, timeOutput))))
+      .catch((err) => console.log(err));
   },
   "AMAZON.NoIntent"() {
     res.tell.call(this, res.goodbye());
