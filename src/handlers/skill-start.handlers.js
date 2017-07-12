@@ -22,7 +22,7 @@ module.exports = Alexa.CreateStateHandler(SKILL_STATES.SKILL_START, mixinHandler
   },
   'AMAZON.YesIntent': function() {
     // updates
-    this.handler.state = SKILL_STATES.APPOINTMENT;
+    this.handler.state = SKILL_STATES.APPOINTMENT_DATE;
 
     // response
     getUserProfile({ token: this.event.session.user.accessToken })
@@ -33,9 +33,15 @@ module.exports = Alexa.CreateStateHandler(SKILL_STATES.SKILL_START, mixinHandler
   },
   AppointmentTime() {
     // updates
-    this.handler.state = SKILL_STATES.APPOINTMENT;
+    this.handler.state = SKILL_STATES.APPOINTMENT_DATE;
 
     this.emitWithState('AppointmentTime');
+  },
+  NewAppointment() {
+    // updates
+    this.handler.state = SKILL_STATES.NEW_APPOINTMENT;
+
+    this.emitWithState('NewAppointment');
   },
   Unhandled() {
     console.log('unhandled');

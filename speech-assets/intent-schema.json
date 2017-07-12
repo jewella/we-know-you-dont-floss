@@ -23,6 +23,19 @@
     },
     {
       "intent": "AppointmentTime"
+    },
+    {
+      "intent": "NewAppointment",
+      "slots": [
+        {
+          "name": "date",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "time",
+          "type": "AMAZON.TIME"
+        }
+      ]
     }
   ]
 }

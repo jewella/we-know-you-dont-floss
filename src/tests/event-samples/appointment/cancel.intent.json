@@ -5,9 +5,9 @@
       "applicationId": "appId"
     },
     "attributes": {
-      "STATE": "APPOINTMENT",
+      "STATE": "APPOINTMENT_DATE",
       "previousResponse": "Your next appointment is on January 1st. Please avoid drinking coffee beforehand... Would you like to hear the date again?",
-      "previousState": "APPOINTMENT"
+      "previousState": "APPOINTMENT_DATE"
     },
     "user": {
       "userId": "userId"

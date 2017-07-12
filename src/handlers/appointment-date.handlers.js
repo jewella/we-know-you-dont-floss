@@ -11,7 +11,7 @@ const getPromotion = require('../modules/get-promotion');
 
 const appointmentTimeHandler = function() {
     // updates
-    this.handler.state = SKILL_STATES.APPOINTMENT;
+    this.handler.state = SKILL_STATES.APPOINTMENT_DATE;
 
     // response
     getUserProfile({ token: this.event.session.user.accessToken })
@@ -21,7 +21,7 @@ const appointmentTimeHandler = function() {
       .catch((err) => console.log(err));
 }
 
-module.exports = Alexa.CreateStateHandler(SKILL_STATES.APPOINTMENT, mixinHandlers(coreHandlers, {
+module.exports = Alexa.CreateStateHandler(SKILL_STATES.APPOINTMENT_DATE, mixinHandlers(coreHandlers, {
   AppointmentTime: appointmentTimeHandler,
   'AMAZON.YesIntent': appointmentTimeHandler,
   'AMAZON.NoIntent': function() {

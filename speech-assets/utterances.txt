@@ -1,0 +1,34 @@
+AppointmentTime when is my next appointment
+AppointmentTime when is my appointment
+AppointmentTime when should I go in next
+AppointmentTime next appointment
+AppointmentTime next appointment time
+AppointmentTime next appointment date
+AppointmentTime next appointment day
+NewAppointment I'd like to make a new appointment
+NewAppointment I would like to make a new appointment
+NewAppointment I'd like to schedule a new appointment
+NewAppointment I would like to schedule a new appointment
+NewAppointment I need to make an appointment
+NewAppointment I'd like to schedule a visit
+NewAppointment I would like to schedule a visit
+NewAppointment I want to make an apppointment for {date}
+NewAppointment I want to make an appointment for {date} {time}
+NewAppointment I want to make an appointment for {date} at {time}
+NewAppointment I want to make an appointment on {date}
+NewAppointment I want to make an appointment on {date} at {time}
+NewAppointment I want to make an appointment on {date} for {time}
+NewAppointment I want to schedule an appointment for {date}
+NewAppointment I want to schedule an appointment for {date} at {time}
+NewAppointment I want to schedule an appointment for {date} {time}
+NewAppointment schedule an appointment for {date} at {time}
+NewAppointment schedule an appointment for {date} {time}
+NewAppointment schedule an appointment on {date}
+NewAppointment schedule an appointment on {date} at {time}
+NewAppointment make an appointment for {date}
+NewAppointment make an appointment for {date} at {time}
+NewAppointment make an appointment for {date} {time}
+NewAppointment book an appointment
+NewAppointment I want to book an appointment
+NewAppointment I want to book an appointment for {date}
+NewAppointment I want to book an appointment for {date} {time}

@@ -5,9 +5,9 @@
       "applicationId": "appId"
     },
     "attributes": {
-      "STATE": "APPOINTMENT_DATE",
+      "STATE": "NEW_APPOINTMENT",
       "previousResponse": "Your next appointment is on January 1st. Please avoid drinking coffee beforehand... Would you like to hear the date again?",
-      "previousState": "APPOINTMENT_DATE"
+      "previousState": "NEW_APPOINTMENT"
     },
     "user": {
       "userId": "amzn1.ask.account.AFP3ZWPOS2BGJR7OWJZ3DHPKMOMNWY4AY66FUR7ILBWANIHQN73QHMAHCTVTAHFPUV3WAFNGKBYW5LFUE2WV4CCGEISSPHBHCW5SCYJDL3DLWRRRBB4CQIP3X3PV65V2AYMMXSNFPKHPZJFVAH5AHKHDLAER67H3AHL4XBUU76XEH5BGDZZNGV5T6HHAGN6KGZI777J3VA7WGPA",

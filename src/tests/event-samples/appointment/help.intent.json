@@ -21,7 +21,7 @@
     "locale": "en-US",
     "timestamp": "2016-08-13T21:58:51Z",
     "intent": {
-      "name": "AMAZON.NoIntent",
+      "name": "AMAZON.HelpIntent",
       "slots": {}
     }
   },

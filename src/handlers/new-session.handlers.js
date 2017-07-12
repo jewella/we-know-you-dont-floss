@@ -12,10 +12,19 @@ const setStateAndInvokeEntryIntent = function() {
     this.emit(':tellWithLinkAccountCard', res.linkAccount());
   } else {
     // updates
-    this.handler.state = SKILL_STATES.SKILL_START;
+    const intent = (this.event.request.intent && this.event.request.intent.name) || 'SkillIntro';
+
+    switch (intent) {
+      case 'NewAppointment':
+        this.handler.state = SKILL_STATES.NEW_APPOINTMENT;
+        break;
+      default:
+        this.handler.state = SKILL_STATES.SKILL_START;
+        break;
+    }
 
     // response
-    this.emitWithState((this.event.request.intent && this.event.request.intent.name) || 'SkillIntro');
+    this.emitWithState(intent);
   }
 };
 
